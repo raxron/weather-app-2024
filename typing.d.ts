@@ -19,7 +19,7 @@ export interface GeoCodingData {
 }
 
 export interface GeoCodingProps {
-    location: string;
+    location?: string ;
     updateLatLon: (lat: number, lon: number) => void;
 }
 

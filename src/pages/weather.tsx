@@ -38,7 +38,7 @@ export default function Weather() {
             className="flex flex-col min-h-screen bg-slate-800 items-center 
             justify-center text-white gap-16 mt-8">
             <GeoCoding
-                location={location}
+                location={location as string}
                 updateLatLon={updateLatLon}
             />
             {isLoading ? (

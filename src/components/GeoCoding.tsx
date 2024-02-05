@@ -8,17 +8,19 @@ const GeoCoding: React.FC<GeoCodingProps> = ({ location, updateLatLon }) => {
 
     useEffect(() => {
         const getData = async () => {
-            try {
-                const url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
-                const response = await axios.get(url);
-                setData(response.data);
-                const [results] = response.data;
-                updateLatLon(results.lat, results.lon);
-                console.log(response.data);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+            if (location) {
+                try {
+                  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
+                  const response = await axios.get(url);
+                  setData(response.data);
+                  const [results] = response.data;
+                  updateLatLon(results.lat, results.lon);
+                  console.log(response.data);
+                } catch (error) {
+                  console.error(error);
+                }
+              }
+            };
 
         getData();
     }, [location]);
