@@ -18,6 +18,7 @@ export default function Weather() {
     const updateLatLon = (lat: number, lon: number) => {
         setLat(lat);
         setLon(lon);
+        setIsLoading(false);
     }
 
     useEffect(() => {
@@ -38,10 +39,7 @@ export default function Weather() {
             justify-center text-white gap-16 mt-8">
             <GeoCoding
                 location={location}
-                updateLatLon={(lat, lon) => {
-                    updateLatLon(lat, lon);
-                    setIsLoading(false);
-                }}
+                updateLatLon={updateLatLon}
             />
             {isLoading ? (
                 <ErrorMsg />
