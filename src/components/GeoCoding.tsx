@@ -10,7 +10,7 @@ const GeoCoding: React.FC<GeoCodingProps> = ({ location, updateLatLon }) => {
         const getData = async () => {
             if (location) {
                 try {
-                  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
+                  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${apiKey}`;
                   const response = await axios.get(url);
                   setData(response.data);
                   const [results] = response.data;
